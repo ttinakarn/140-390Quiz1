@@ -22,3 +22,7 @@ app.get('/students', function (request, response) {
 app.get('/subjects', function (request, response) {
     response.render('pages/index');
 });
+
+console.log('App is running at http://localhost:8080');
+
+app.listen(8080);
