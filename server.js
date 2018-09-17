@@ -9,4 +9,16 @@ var connection = mysql.createConnection({
     database : 'abc123**'
   });
 
-  app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
+
+app.get('/', function (request, response) {
+    response.render('pages/index');
+});
+
+app.get('/students', function (request, response) {
+    
+});
+
+app.get('/subjects', function (request, response) {
+    response.render('pages/index');
+});
