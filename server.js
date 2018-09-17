@@ -7,7 +7,9 @@ var connection = mysql.createConnection({
     user     : 's140390',
     password : 'abc123**',
     database : 'db140390'
-  });
+});
+
+connection.connect();
 
 app.set('view engine', 'ejs');
 
@@ -16,19 +18,17 @@ app.get('/', function (request, response) {
 });
 
 app.get('/students', function (request, response) {
-
-    connection.connect()
-
     connection.query('select * from students', function (err, rows, fields) {
-        if (err) throw err
-        response.render('pages/students', { students: rows });
-      })
-      
-      connection.end()
+        if (err) throw err;
+        response.render('pages/students', {students: rows });
+    });
 });
 
 app.get('/subjects', function (request, response) {
-    response.render('pages/index');
+    connection.query('select * from subjects', function(err, rows, fields){
+        if(err) throw err;
+        response.render('pages/subjects',{subjects: rows});
+    });
 });
 
 console.log('App is running at http://localhost:8080');
