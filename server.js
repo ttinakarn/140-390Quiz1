@@ -8,3 +8,5 @@ var connection = mysql.createConnection({
     password : 's140390',
     database : 'abc123**'
   });
+
+  app.set('view engine', 'ejs');
